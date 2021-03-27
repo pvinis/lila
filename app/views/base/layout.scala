@@ -20,10 +20,6 @@ object layout {
     val viewport = raw(
       """<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">"""
     )
-    def metaCsp(csp: ContentSecurityPolicy): Frag =
-      raw {
-        s"""<meta http-equiv="Content-Security-Policy" content="$csp">"""
-      }
     def metaCsp(csp: Option[ContentSecurityPolicy])(implicit ctx: Context): Frag =
       metaCsp(csp getOrElse defaultCsp)
     def metaThemeColor(implicit ctx: Context): Frag =
